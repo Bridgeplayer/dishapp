@@ -1,0 +1,35 @@
+<h1> All dishes </h1>
+
+<table>
+	<tr>
+		<td>Name</td>
+		<td>Description</td>
+		<td>Edit</td>
+		<td>Delete</td>
+	</tr>
+	<% @dishes.each do |dish| %>
+	<tr>
+		<td><%= dish.name %></td>
+		<td><%= dish.description %></td>
+		<td><%= link_to "Edit", edit_dish_path(id: dish.id) %></td>
+		<td><%= link_to "Delete", dish_path(id: dish.id), method: :delete %></td>
+	</tr>
+	<% end %>
+</table>
+
+<h1> Create new dish </h1>
+<div>
+<%= form_for @dish, url: dishes_path, method: :post do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+
+  <%= f.submit "Create" %>
+<% end %>
+</div>
+
+<%= link_to "New Dish", new_dish_path %>
+
+

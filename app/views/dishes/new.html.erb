@@ -1,0 +1,10 @@
+<h1> Create new dish </h1>
+<%= form_for @dish, url: dishes_path, method: :post do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+
+  <%= f.submit "Create" %>
+<% end %>
